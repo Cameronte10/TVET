@@ -4,21 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AI : MonoBehaviour {
-    GameObject player;
-    public Transform target;
-	public float speed;
+    GameObject player; //gets player
+    public Transform target; //gets players transform
+	public float speed; //gets speed
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        target = player.GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player"); //Gets the player
+        target = player.GetComponent<Transform>(); //Gets the players transform
     }
     void Update()
     {
        
         if (target != null)
         {
-            
-            transform.LookAt(target);
+            transform.LookAt(target); 
 			float step = speed * Time.deltaTime;
 			transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }

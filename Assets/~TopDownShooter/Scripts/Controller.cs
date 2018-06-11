@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour {
-
-
-	
-	// Update is called once per frame
+    
+	//Loads main scene 
 	void Update () {
-		if(Input.GetKey(KeyCode.Space))
+		if(Input.GetKey(KeyCode.F))
         {
             SceneManager.LoadScene(0);
         }

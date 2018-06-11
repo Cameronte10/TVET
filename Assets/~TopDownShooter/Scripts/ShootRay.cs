@@ -5,21 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class ShootRay : MonoBehaviour
 {
-    public float distance = 30f;
-    public int kills = 0;
-    // Update is called once per frame
+    public float distance = 30f; //Set length of Ray
+    public int kills = 0; //Number of points
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hitInfo;
             Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out hitInfo, distance))
+            Debug.DrawLine(ray.origin, ray.GetPoint(30f), Color.blue);
+            if (Physics.Raycast(ray, out hitInfo, distance)) //tests if ray hits
             {
-                Debug.DrawLine(ray.origin, ray.GetPoint(30f), Color.blue);
+
                 if (hitInfo.collider.CompareTag("Enemy"))
                 {
-                    Debug.Log("Hit Enemy");
+                    //Debug.Log("Hit Enemy");
                     Destroy(hitInfo.transform.gameObject);
                     kills++;
                     

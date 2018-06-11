@@ -5,28 +5,23 @@ using UnityEngine;
 public class BetterSpawn : MonoBehaviour {
 
 	 
-	public GameObject enemy;                // The enemy prefab to be spawned.
-	public float spawnTime = 3f;            // How long between each spawn.
-	public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
+	public GameObject enemy;  //Get Object to spawn             
+	public float spawnTime = 3f; //Spawn interval           
+	public Transform[] spawnPoints; //Spawn point array
 
 
 	void Start ()
 	{
-		// Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
+		//Start the loop of spawning
 		InvokeRepeating ("Spawn", spawnTime, spawnTime);
 	}
 
 
 	void Spawn ()
 	{
-		// If the player has no health left...
-
-
-
-		// Find a random index between zero and one less than the number of spawn points.
+		//Chooses a random spawn point in the array
 		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
-
-		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+        //Spawns objects
 		Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 	}
 }
