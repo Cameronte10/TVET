@@ -1,35 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ShootRay : MonoBehaviour
 {
-    public float distance = 30f; //Set length of Ray
-    public int kills = 0; //Number of points
+    public float distance = 30f;
     
+    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.E))
         {
             RaycastHit hitInfo;
             Ray ray = new Ray(transform.position, transform.forward);
-            Debug.DrawLine(ray.origin, ray.GetPoint(30f), Color.blue);
-            if (Physics.Raycast(ray, out hitInfo, distance)) //tests if ray hits
+            if (Physics.Raycast(ray, out hitInfo, distance))
             {
-
+                Debug.DrawLine(ray.origin, ray.GetPoint(30f), Color.blue);
                 if (hitInfo.collider.CompareTag("Enemy"))
                 {
-                    //Debug.Log("Hit Enemy");
-                    Destroy(hitInfo.transform.gameObject);
-                    kills++;
-                    
+                    Debug.Log("Hit Enemy");
+
+                    //Destroy(hitInfo.transform.gameObject);
                 }
             }
-        }
-        if(kills >= 30)
-        {
-            SceneManager.LoadScene(2);
         }
     }
     
