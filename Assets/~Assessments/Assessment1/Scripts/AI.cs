@@ -17,6 +17,7 @@ public class AI : MonoBehaviour {
        
         if (target != null)
         {
+            //looks and moves towards target
             transform.LookAt(target); 
 			float step = speed * Time.deltaTime;
 			transform.position = Vector3.MoveTowards(transform.position, target.position, step);
@@ -24,6 +25,7 @@ public class AI : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //Sends player to lose screen if collided
         if (collision.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(1);

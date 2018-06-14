@@ -9,15 +9,6 @@ public class shoot : MonoBehaviour
 	public float timer;
 	public float timerMax;
 
-    // Use this for initialization
-    void Start()
-    {
-        
-
-       
-
-    }
-
     // Update is called once per frame
     void Update()
     {

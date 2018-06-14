@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Suicide : MonoBehaviour {
     public int timer = 0;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    //simple script that self destructs after certain time
+    void Update () {
         timer++;
 		if(timer >= 300)
         {

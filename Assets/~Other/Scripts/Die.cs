@@ -7,8 +7,8 @@ public class Die : MonoBehaviour {
 	public float delay;
     void OnCollisionEnter(Collision collision)
     {
-		timer++;
-        if (collision.gameObject.tag == "Player")
+		timer++; //increments timer
+        if (collision.gameObject.tag == "Player") 
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);

@@ -19,12 +19,12 @@ public class ShootRay : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, distance)) //shoots ray
             {
                 //source.Play();
-                Instantiate(sound, transform.position, transform.rotation);
+                Instantiate(sound, transform.position, transform.rotation); //Spawns gunshot sound
 
                 if (hitInfo.collider.CompareTag("Enemy"))
                 {
                     //Debug.Log("Hit Enemy");
-                    Destroy(hitInfo.transform.gameObject);
+                    Destroy(hitInfo.transform.gameObject); //Destroys enemy
                     kills++;
                     
                 }
@@ -32,7 +32,7 @@ public class ShootRay : MonoBehaviour
         }
         if(kills >= 30)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(2); //Load Win Screen
         }
     }
     
